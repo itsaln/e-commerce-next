@@ -40,5 +40,6 @@ module.exports = {
 				'9xl': '9.2rem'
 			}
 		}
-	}
+	},
+	plugins: []
 }
