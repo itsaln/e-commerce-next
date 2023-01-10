@@ -5,7 +5,7 @@ import { cartSlice } from '@/store/slice'
 const rootReducer = combineReducers({
 	cart: cartSlice.reducer
 })
-
+// TODO: LS
 export const store = configureStore({
 	reducer: rootReducer
 })
