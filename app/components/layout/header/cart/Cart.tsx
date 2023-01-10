@@ -9,9 +9,10 @@ import {
 	DrawerOverlay
 } from '@chakra-ui/react'
 import { FC, useRef, useState } from 'react'
-import { useSelector } from 'react-redux'
 
 import CartItem from '@/layout/header/cart/cart-item/CartItem'
+
+import { useTypedSelector } from '@/hooks/useTypedSelector'
 
 import styles from './Cart.module.scss'
 
@@ -21,7 +22,7 @@ const Cart: FC = () => {
 	const [isOpen, setIsOpen] = useState(false)
 	const btnRef = useRef<HTMLButtonElement>(null)
 
-	const cart = useSelector((state) => (state as any).cart.items)
+	const cart = useTypedSelector((state) => state.cart.items)
 
 	return (
 		<div className={styles['wrapper-cart']}>
