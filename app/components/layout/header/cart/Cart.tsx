@@ -12,7 +12,7 @@ import { FC, useRef, useState } from 'react'
 
 import CartItem from '@/layout/header/cart/cart-item/CartItem'
 
-import { useTypedSelector } from '@/hooks/useTypedSelector'
+import { useCart } from '@/hooks/useCart'
 
 import styles from './Cart.module.scss'
 
@@ -22,12 +22,18 @@ const Cart: FC = () => {
 	const [isOpen, setIsOpen] = useState(false)
 	const btnRef = useRef<HTMLButtonElement>(null)
 
-	const cart = useTypedSelector((state) => state.cart.items)
+	const { cart, total } = useCart()
+
+	console.log(cart)
 
 	return (
 		<div className={styles['wrapper-cart']}>
-			<button className={styles.heading} onClick={() => setIsOpen(!isOpen)}>
-				<span className={styles.badge}>1</span>
+			<button
+				className={styles.heading}
+				onClick={() => setIsOpen(!isOpen)}
+				ref={btnRef}
+			>
+				<span className={styles.badge}>{cart.length}</span>
 				<span className={styles.text}>My Basket</span>
 			</button>
 
@@ -58,7 +64,7 @@ const Cart: FC = () => {
 						>
 							<div className={styles.footer}>
 								<div>Total:</div>
-								<div>$100</div>
+								<div>{total}$</div>
 							</div>
 							<Button colorScheme='green'>Checkout</Button>
 						</DrawerFooter>

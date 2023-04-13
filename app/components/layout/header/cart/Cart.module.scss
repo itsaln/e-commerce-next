@@ -13,7 +13,7 @@
 
 .cart {
   .item {
-    @apply flex items-center gap-4 border-b border-b-[#f7f4f0] pb-6 pt-4;
+    @apply flex items-center gap-4 border-b border-b-[#f7f4f0] pb-6 pt-4 last:border-b-0;
   }
   .name {
     @apply tracking-widest truncate w-36 font-semibold;
