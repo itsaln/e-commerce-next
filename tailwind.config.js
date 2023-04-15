@@ -1,4 +1,5 @@
 const colors = require('tailwindcss/colors')
+const plugin = require('tailwindcss/plugin')
 
 const constants = {
 	red: '#f23c3d',
@@ -41,5 +42,41 @@ module.exports = {
 			}
 		}
 	},
-	plugins: []
+	plugins: [
+		plugin(({ addComponents, theme, addUtilities }) => {
+			addComponents({
+				'.truncate-1': {
+					display: '-webkit-box !important',
+					'-webkit-line-clamp': '1',
+					'-webkit-box-orient': 'vertical',
+					textOverflow: 'ellipsis',
+					overflow: 'hidden'
+				},
+				'.truncate-2': {
+					display: '-webkit-box !important',
+					'-webkit-line-clamp': '2',
+					'-webkit-box-orient': 'vertical',
+					textOverflow: 'ellipsis',
+					overflow: 'hidden'
+				},
+				'.truncate-3': {
+					display: '-webkit-box !important',
+					'-webkit-line-clamp': '3',
+					'-webkit-box-orient': 'vertical',
+					textOverflow: 'ellipsis',
+					overflow: 'hidden'
+				},
+				'.truncate-4': {
+					display: '-webkit-box !important',
+					'-webkit-line-clamp': '4',
+					'-webkit-box-orient': 'vertical',
+					textOverflow: 'ellipsis',
+					overflow: 'hidden'
+				},
+			})
+			addUtilities({
+			
+			})
+		})
+	]
 }

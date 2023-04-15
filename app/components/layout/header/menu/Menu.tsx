@@ -12,9 +12,9 @@ const Menu: FC = () => {
 		<div className={styles.menu}>
 			<Link href='/'>
 				<Image
-					src='/images/logo.png'
-					width={100}
-					height={100}
+					src='/images/logo.svg'
+					width={86}
+					height={86}
 					alt='Xmas shop'
 				/>
 			</Link>
