@@ -5,7 +5,7 @@
 }
 
 .item {
-  @apply relative bg-light-gray rounded-xl p-5 pt-0 mb-8;
+  @apply relative bg-light-gray rounded-xl p-5 pt-0 mb-8 cursor-pointer;
   //width: 24%;
 
   .image {
