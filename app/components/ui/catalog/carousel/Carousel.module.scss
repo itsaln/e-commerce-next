@@ -1,25 +1,30 @@
 @import '../../../../assets/styles/variables';
 
 .carousel {
-  @apply grid grid-cols-4 gap-8 mt-32;
+  @apply flex flex-wrap items-center mt-32 -mx-4;
+
+  > .col {
+    @apply flex-initial w-1/4 px-4;
+  }
 }
 
 .item {
-  @apply relative bg-light-gray rounded-xl p-5 pt-0 mb-8 cursor-pointer;
-  //width: 24%;
+  @apply relative flex flex-col justify-between bg-light-gray rounded-xl h-full min-h-[330px] px-6 pb-8 mb-24 cursor-pointer;
 
-  .image {
-    @apply -mt-[4.5rem];
+  .body {
+    @apply h-full;
   }
+
   .heading {
     @apply font-bold text-xl text-beige leading-7 truncate-2;
   }
+
   .description {
-    @apply text-sm text-beige truncate-3 mt-5 opacity-90;
+    @apply text-sm text-beige truncate-3 mt-3 opacity-90;
   }
 
   .variations {
-    @apply grid grid-cols-4 gap-2.5 mt-6;
+    @apply grid grid-cols-4 gap-2.5 mt-5;
 
     > button {
       @apply bg-transparent border border-white rounded text-[0.6rem] font-semibold text-white text-center uppercase px-1 transition-colors;
@@ -38,8 +43,7 @@
     @apply bg-green bg-contain bg-no-repeat shadow-2xl shadow-green;
     background-image: url('/images/bg-pattern.jpg');
     background-position: center -110px;
-    transform: scale(1.12);
-    //width: 30%;
+    transform: scale(1.1);
 
     &::before {
       @apply content-[''] absolute w-full h-full rounded-xl inset-0;

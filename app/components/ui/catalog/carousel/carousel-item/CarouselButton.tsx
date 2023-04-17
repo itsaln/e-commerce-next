@@ -5,7 +5,7 @@ import { COLORS } from '@/config/colors.config'
 
 import { useActions } from '@/hooks/useActions'
 
-import { TypeSize } from '@/store/types'
+import { TypeSize } from '@/store/cart/cart.types'
 import { IProduct } from '@/types/product.interface'
 
 interface ICarouselButton {

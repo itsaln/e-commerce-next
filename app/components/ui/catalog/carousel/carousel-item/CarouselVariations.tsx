@@ -3,7 +3,7 @@ import { Dispatch, FC, SetStateAction } from 'react'
 
 import styles from '../Carousel.module.scss'
 
-import { TypeSize } from '@/store/types'
+import { TypeSize } from '@/store/cart/cart.types'
 
 const SIZES: TypeSize[] = ['SHORT', 'TALL', 'GRANDE', 'VENTI']
 

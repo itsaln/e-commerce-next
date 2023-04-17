@@ -1,0 +1,19 @@
+.navigation {
+  @apply relative;
+
+  .image {
+    @apply w-[262px] h-[262px] object-contain -translate-y-[4.5rem] -mb-[4.5rem];
+  }
+
+  .arrow {
+    @apply absolute text-4xl font-light text-white w-[42px] h-[42px] top-1/2 -translate-y-1/2 p-2;
+
+    &.prev {
+      @apply left-1;
+    }
+
+    &.next {
+      @apply right-1;
+    }
+  }
+}

@@ -1,61 +1,37 @@
-import { ChevronLeftIcon, ChevronRightIcon, MinusIcon } from '@chakra-ui/icons'
-import { Button } from '@chakra-ui/react'
 import cn from 'clsx'
-import Image from 'next/image'
 import { FC, useState } from 'react'
 
-import CarouselButton from '@/ui/catalog/carousel/carousel-item/CarouselButton'
-import CarouselVariations from '@/ui/catalog/carousel/carousel-item/CarouselVariations'
+import { useCarousel } from '@/ui/catalog/carousel/useCarousel'
+
+import { useActions } from '@/hooks/useActions'
 
 import styles from '../Carousel.module.scss'
 
-import { TypeSize } from '@/store/types'
-import { IProduct } from '@/types/product.interface'
+import CarouselButton from './CarouselButton'
+import CarouselVariations from './CarouselVariations'
+import { ICarouselItem } from './carousel-item.interface'
+import CarouselNavigation from './carousel-navigation/CarouselNavigation'
+import { TypeSize } from '@/store/cart/cart.types'
 
-interface ICarouselItem {
-	product: IProduct
-	isActive: boolean
-	selectItem: () => void
-	nextHandler: () => void
-	prevHandler: () => void
-}
-
-const CarouselItem: FC<ICarouselItem> = ({
-	product,
-	isActive,
-	selectItem,
-	nextHandler,
-	prevHandler
-}) => {
+const CarouselItem: FC<ICarouselItem> = ({ product, index }) => {
 	const [selectedSize, setSelectedSize] = useState<TypeSize>('SHORT')
+
+	const { selectedItemIndex } = useCarousel()
+	const { selectSlide } = useActions()
+
+	const isActive = index === selectedItemIndex
 
 	return (
 		<div
 			className={cn(styles.item, {
 				[styles.active]: isActive
 			})}
-			onClick={selectItem}
+			onClick={() => selectSlide(index)}
+			aria-label='Select item'
+			role='button'
 		>
-			<div>
-				<div className='flex items-center'>
-					{isActive && (
-						<Button onClick={prevHandler} className='absolute left-0'>
-							<ChevronLeftIcon fontSize={13} />
-						</Button>
-					)}
-					<Image
-						className={styles.image}
-						src={product.images[0]}
-						alt={product.name}
-						width={300}
-						height={300}
-					/>
-					{isActive && (
-						<Button onClick={nextHandler} className='absolute right-0'>
-							<ChevronRightIcon fontSize={13} />
-						</Button>
-					)}
-				</div>
+			<CarouselNavigation product={product} isActive={isActive} />
+			<div className={styles.body}>
 				<div className={styles.heading}>{product.name}</div>
 				{isActive ? (
 					<>

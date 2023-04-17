@@ -11,7 +11,8 @@ import {
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
-import { cartSlice } from '@/store/slice'
+import { carouselSlice } from '@/store/carousel/carousel.slice'
+import { cartSlice } from '@/store/cart/cart.slice'
 
 const persistConfig = {
 	key: 'xmax-shop',
@@ -20,7 +21,8 @@ const persistConfig = {
 }
 
 const rootReducer = combineReducers({
-	cart: cartSlice.reducer
+	cart: cartSlice.reducer,
+	carousel: carouselSlice.reducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
