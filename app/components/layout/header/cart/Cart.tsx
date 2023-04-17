@@ -66,7 +66,7 @@ const Cart: FC = () => {
 								<div>Total:</div>
 								<div>{total}$</div>
 							</div>
-							<Button colorScheme='green'>Checkout</Button>
+							<Button colorScheme='whatsapp'>Checkout</Button>
 						</DrawerFooter>
 					</DrawerContent>
 				</Drawer>

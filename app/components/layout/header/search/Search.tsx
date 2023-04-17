@@ -2,6 +2,8 @@ import { SearchIcon } from '@chakra-ui/icons'
 import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
 import { FC, useState } from 'react'
 
+import { COLORS } from '@/config/colors.config'
+
 import styles from './Search.module.scss'
 
 const Search: FC = () => {
@@ -24,7 +26,7 @@ const Search: FC = () => {
 						boxShadow: 'none'
 					}}
 					_focusVisible={{
-						borderColor: '#008d64'
+						borderColor: COLORS.green
 					}}
 				/>
 			</InputGroup>

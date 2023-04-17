@@ -39,6 +39,11 @@ module.exports = {
 				'7xl': '5.17rem',
 				'8xl': '6.9rem',
 				'9xl': '9.2rem'
+			},
+			zIndex: {
+				1: '1',
+				2: '2',
+				3: '3'
 			}
 		}
 	},

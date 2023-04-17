@@ -1,4 +1,5 @@
 import cn from 'clsx'
+import { motion } from 'framer-motion'
 import { FC, useState } from 'react'
 
 import { useCarousel } from '@/ui/catalog/carousel/useCarousel'
@@ -22,13 +23,16 @@ const CarouselItem: FC<ICarouselItem> = ({ product, index }) => {
 	const isActive = index === selectedItemIndex
 
 	return (
-		<div
+		<motion.div
 			className={cn(styles.item, {
 				[styles.active]: isActive
 			})}
 			onClick={() => selectSlide(index)}
 			aria-label='Select item'
 			role='button'
+			initial={{ scale: 1 }}
+			animate={isActive ? { scale: 1.1 } : {}}
+			transition={{ type: 'spring', duration: 0.5 }}
 		>
 			<CarouselNavigation product={product} isActive={isActive} />
 			<div className={styles.body}>
@@ -45,7 +49,7 @@ const CarouselItem: FC<ICarouselItem> = ({ product, index }) => {
 					<div className={styles.description}>{product.description}</div>
 				)}
 			</div>
-		</div>
+		</motion.div>
 	)
 }
 

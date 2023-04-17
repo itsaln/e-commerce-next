@@ -17,7 +17,10 @@ const CarouselNavigation: FC<ICarouselNavigation> = ({ product, isActive }) => {
 		<div className={styles.navigation}>
 			{isActive && (
 				<button
-					onClick={() => prevSlide()}
+					onClick={(e) => {
+						e.stopPropagation()
+						prevSlide()
+					}}
 					className={cn(styles.arrow, styles.prev)}
 				>
 					<ChevronLeftIcon />
@@ -34,7 +37,10 @@ const CarouselNavigation: FC<ICarouselNavigation> = ({ product, isActive }) => {
 			/>
 			{isActive && (
 				<button
-					onClick={() => nextSlide({ carouselLength: products.length })}
+					onClick={(e) => {
+						e.stopPropagation()
+						nextSlide({ carouselLength: products.length })
+					}}
 					className={cn(styles.arrow, styles.next)}
 				>
 					<ChevronRightIcon />
