@@ -44,6 +44,29 @@ module.exports = {
 				1: '1',
 				2: '2',
 				3: '3'
+			},
+			keyframes: {
+				animationOpacity: {
+					from: { opacity: 0 },
+					to: { opacity: 1 }
+				},
+				scaleIn: {
+					'0%': {
+						opacity: 0,
+						transform: 'scale(0.9)'
+					},
+					'50%': {
+						opacity: 0.3
+					},
+					'100%': {
+						opacity: 1,
+						transform: 'scale(1)'
+					}
+				}
+			},
+			animation: {
+				opacity: 'animationOpacity .6s',
+				scaleIn: 'scaleIn .35s ease-in-out'
 			}
 		}
 	},
@@ -77,11 +100,9 @@ module.exports = {
 					'-webkit-box-orient': 'vertical',
 					textOverflow: 'ellipsis',
 					overflow: 'hidden'
-				},
+				}
 			})
-			addUtilities({
-			
-			})
+			addUtilities({})
 		})
 	]
 }

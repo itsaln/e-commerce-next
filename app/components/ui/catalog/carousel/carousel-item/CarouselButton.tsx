@@ -23,8 +23,6 @@ const CarouselButton: FC<ICarouselButton> = ({ product, selectedSize }) => {
 			cartItem.product.id === product.id && cartItem.size === selectedSize
 	)
 
-	// TODO: Change button to remove from cart
-
 	return (
 		<div className='text-center'>
 			<Button

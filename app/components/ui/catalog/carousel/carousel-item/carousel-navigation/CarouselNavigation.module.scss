@@ -7,7 +7,7 @@
 
   .arrow {
     @apply absolute flex items-center justify-center rounded-full text-3xl font-light text-white w-[42px] h-[42px]
-    top-1/2 -translate-y-1/2 p-2 transition-colors hover:bg-green/30 z-1;
+    top-1/2 -translate-y-1/2 p-2 transition-colors hover:bg-green/30 z-1 animate-opacity;
 
     &.prev {
       @apply left-0;
