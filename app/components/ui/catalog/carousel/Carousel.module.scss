@@ -17,8 +17,6 @@
 
   .heading {
     @apply font-bold text-xl text-beige leading-7 truncate-2;
-    //will-change: transform;
-    //backface-visibility: hidden;
   }
 
   .description {
@@ -37,6 +35,10 @@
         @apply bg-white text-dark-green;
       }
     }
+  }
+
+  .link {
+    @apply block text-xs text-center text-white mt-2.5 hover:underline;
   }
 
   > div {
