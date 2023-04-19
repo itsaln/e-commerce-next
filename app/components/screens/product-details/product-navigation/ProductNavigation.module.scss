@@ -1,0 +1,7 @@
+.nav {
+  @apply text-right mt-3;
+
+  > a {
+    @apply text-4xl text-[#222] mr-2 opacity-80 hover:opacity-100 transition-opacity duration-300;
+  }
+}

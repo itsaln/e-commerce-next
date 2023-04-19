@@ -15,6 +15,11 @@ a {
   @apply text-[inherit] no-underline;
 }
 
+.disabled {
+  @apply pointer-events-none cursor-default no-underline;
+  opacity: .4 !important;
+}
+
 input:focus {
   box-shadow: none !important;
 }
