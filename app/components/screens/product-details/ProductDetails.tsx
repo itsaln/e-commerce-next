@@ -4,16 +4,16 @@ import Layout from '@/layout/Layout'
 
 import Heading from '@/ui/heading/Heading'
 
-import { IProduct } from '@/types/product.interface'
+import { IProductDetails } from '@/types/product.interface'
 
-import Breadcrumbs from '@/screens/product-details/product-breadcrumbs/Breadcrumbs'
-import ProductCard from '@/screens/product-details/product-card/ProductCard'
-import ProductNavigation from '@/screens/product-details/product-navigation/ProductNavigation'
+import Breadcrumbs from './product-breadcrumbs/Breadcrumbs'
+import ProductCard from './product-card/ProductCard'
+import ProductNavigation from './product-navigation/ProductNavigation'
 
-const ProductDetails: FC<{ product: IProduct }> = ({ product }) => {
+const ProductDetails: FC<IProductDetails> = ({ product }) => {
 	return (
 		<Layout title={product.name} description={product.description}>
-			<Heading className='text-right'>{product.name}</Heading>
+			<Heading className='text-right'>Product details</Heading>
 			<div>
 				<Breadcrumbs product={product} />
 				<ProductNavigation productId={product.id} />

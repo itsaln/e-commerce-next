@@ -6,15 +6,21 @@ import { COLORS } from '@/config/colors.config'
 import { useActions } from '@/hooks/useActions'
 import { useCart } from '@/hooks/useCart'
 
-import { TypeSize } from '@/store/cart/cart.types'
 import { IProduct } from '@/types/product.interface'
 
-interface ICarouselButton {
+import { TypeSize } from '@/store/cart/cart.types'
+
+interface IAddToCartButton {
 	product: IProduct
 	selectedSize: TypeSize
+	variant?: 'small' | 'medium'
 }
 
-const CarouselButton: FC<ICarouselButton> = ({ product, selectedSize }) => {
+const AddToCartButton: FC<IAddToCartButton> = ({
+	product,
+	selectedSize,
+	variant = 'small'
+}) => {
 	const { addToCart, removeFromCart } = useActions()
 	const { cart } = useCart()
 
@@ -22,6 +28,8 @@ const CarouselButton: FC<ICarouselButton> = ({ product, selectedSize }) => {
 		(cartItem) =>
 			cartItem.product.id === product.id && cartItem.size === selectedSize
 	)
+
+	const isSmall = variant === 'small'
 
 	return (
 		<div className='text-center'>
@@ -35,14 +43,18 @@ const CarouselButton: FC<ICarouselButton> = ({ product, selectedSize }) => {
 								size: selectedSize
 						  })
 				}
-				color={COLORS.green}
+				color={isSmall ? COLORS.green : COLORS.white}
+				backgroundColor={isSmall ? undefined : COLORS.green}
 				className='tracking-widest'
 				marginTop={8}
 				borderRadius={20}
-				fontSize={12}
+				fontSize={isSmall ? 12 : 16}
 				fontWeight={500}
 				textTransform='uppercase'
 				textAlign='center'
+				_hover={{
+					backgroundColor: isSmall ? undefined : COLORS['dark-green']
+				}}
 			>
 				{currentElement ? 'Remove from basket' : 'Add to basket'}
 			</Button>
@@ -50,4 +62,4 @@ const CarouselButton: FC<ICarouselButton> = ({ product, selectedSize }) => {
 	)
 }
 
-export default CarouselButton
+export default AddToCartButton

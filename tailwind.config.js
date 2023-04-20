@@ -9,7 +9,8 @@ const constants = {
 	black: '#222222',
 	'light-gray': '#e8e7e3',
 	white: '#ffffff',
-	beige: '#a49b8f'
+	beige: '#a49b8f',
+	'dark-beige': '#6B655D',
 }
 
 /** @type {import('tailwindcss').Config} */

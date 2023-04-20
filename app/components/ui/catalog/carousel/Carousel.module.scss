@@ -24,19 +24,6 @@
     //animation: animationOpacity 0.6s;
   }
 
-  .variations {
-    @apply grid grid-cols-4 gap-2.5 mt-5 animate-opacity;
-    //animation: animationOpacity 0.6s;
-
-    > button {
-      @apply bg-transparent border border-white rounded text-[0.6rem] font-semibold text-white text-center uppercase px-1 transition-colors;
-
-      &.active {
-        @apply bg-white text-dark-green;
-      }
-    }
-  }
-
   .link {
     @apply block text-xs text-center text-white mt-2.5 hover:underline;
   }
@@ -57,6 +44,24 @@
 
     .heading {
       @apply text-3xl text-white leading-9 transition-all duration-150 ease-linear;
+    }
+  }
+}
+
+.variations {
+  @apply grid grid-cols-4 gap-2.5 mt-5 animate-opacity;
+
+  &.medium {
+    > button {
+      @apply text-xs;
+    }
+  }
+
+  > button {
+    @apply bg-transparent border border-white rounded text-[0.6rem] font-semibold text-white text-center uppercase px-1 transition-colors;
+
+    &.active {
+      @apply bg-white text-dark-green;
     }
   }
 }

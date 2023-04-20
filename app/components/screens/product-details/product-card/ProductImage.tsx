@@ -7,16 +7,22 @@ import { IProductDetails } from '@/types/product.interface'
 
 import styles from './ProductCard.module.scss'
 
-const ProductImage: FC<IProductDetails> = ({ product }) => {
+interface IProductImage extends IProductDetails {
+	currentImageIndex: number
+}
+
+const ProductImage: FC<IProductImage> = ({ product, currentImageIndex }) => {
 	return (
 		<div className={styles.image}>
-			<Image
-				src={product.images[0]}
-				alt={product.name}
-				width={250}
-				height={250}
-			/>
-			<div>{formatToCurrency(product.price)}</div>
+			<div className={styles.main}>
+				<Image
+					src={product.images[currentImageIndex]}
+					alt={product.name}
+					width={260}
+					height={260}
+				/>
+			</div>
+			<div className={styles.price}>{formatToCurrency(product.price)}</div>
 		</div>
 	)
 }

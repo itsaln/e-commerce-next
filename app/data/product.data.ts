@@ -1,4 +1,5 @@
 import { IProduct } from '@/types/product.interface'
+import { reviews } from '@/data/review.data'
 
 export const products: IProduct[] = [
 	{
@@ -8,10 +9,12 @@ export const products: IProduct[] = [
 		name: 'Sugar Cookie Almondmilk Frappuccino® Blended Beverage',
 		slug: 'sugar-cookie-almondmilk-frappuccino®-blended-beverage',
 		images: [
-			'/images/products/001.png'
+			'/images/products/001.png',
+			'/images/products/002.png',
+			'/images/products/003.png'
 		],
 		price: 9,
-		reviews: []
+		reviews: [reviews[0], reviews[1], reviews[2]]
 	},
 	{
 		id: 2,
@@ -20,7 +23,9 @@ export const products: IProduct[] = [
 		name: 'Mocha Cookie Crumble Frappuccino®',
 		slug: 'mocha-cookie-crumble-frappuccino®',
 		images: [
-			'/images/products/002.png'
+			'/images/products/002.png',
+			'/images/products/003.png',
+			'/images/products/001.png',
 		],
 		price: 5,
 		reviews: []

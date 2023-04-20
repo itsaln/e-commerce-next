@@ -7,13 +7,14 @@ import { useCarousel } from '@/ui/catalog/carousel/useCarousel'
 
 import { useActions } from '@/hooks/useActions'
 
+import { TypeSize } from '@/store/cart/cart.types'
+
 import styles from '../Carousel.module.scss'
 
-import CarouselButton from './CarouselButton'
-import CarouselVariations from './CarouselVariations'
+import AddToCartButton from './AddToCartButton'
+import SizeVariations from './SizeVariations'
 import { ICarouselItem } from './carousel-item.interface'
 import CarouselNavigation from './carousel-navigation/CarouselNavigation'
-import { TypeSize } from '@/store/cart/cart.types'
 
 const CarouselItem: FC<ICarouselItem> = ({ product, index }) => {
 	const [selectedSize, setSelectedSize] = useState<TypeSize>('SHORT')
@@ -40,12 +41,14 @@ const CarouselItem: FC<ICarouselItem> = ({ product, index }) => {
 				<div className={styles.heading}>{product.name}</div>
 				{isActive ? (
 					<>
-						<CarouselVariations
+						<SizeVariations
 							selectedSize={selectedSize}
 							setSelectedSize={setSelectedSize}
 						/>
-						<CarouselButton product={product} selectedSize={selectedSize} />
-						<Link href={`/product/${product.slug}`} className={styles.link}>More information</Link>
+						<AddToCartButton product={product} selectedSize={selectedSize} />
+						<Link href={`/product/${product.slug}`} className={styles.link}>
+							More information
+						</Link>
 					</>
 				) : (
 					<div className={styles.description}>{product.description}</div>
