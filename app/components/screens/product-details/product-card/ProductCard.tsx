@@ -12,13 +12,13 @@ const ProductCard: FC<IProductDetails> = ({ product }) => {
 
 	return (
 		<div className={styles.card}>
-			<ProductInformation product={product} />
-			<ProductImage product={product} currentImageIndex={currentImageIndex} />
-			<ProductVariations
+			<ProductInformation
 				product={product}
 				currentImageIndex={currentImageIndex}
 				setCurrentImageIndex={setCurrentImageIndex}
 			/>
+			<ProductImage product={product} currentImageIndex={currentImageIndex} />
+			<ProductVariations product={product} />
 		</div>
 	)
 }

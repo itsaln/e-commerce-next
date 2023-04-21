@@ -1,3 +1,4 @@
+import cn from 'clsx'
 import Image from 'next/image'
 import { Dispatch, FC, SetStateAction } from 'react'
 
@@ -22,7 +23,13 @@ const ProductInformation: FC<IProductInformation> = ({
 				<p>{product.description}</p>
 			</div>
 			{product.images.map((image, index) => (
-				<button key={`${image}_${index}`}>
+				<button
+					key={`${image}_${index}`}
+					onClick={() => setCurrentImageIndex(index)}
+					className={cn({
+						[styles.active]: index === currentImageIndex
+					})}
+				>
 					<Image src={image} alt='' width={70} height={70} />
 				</button>
 			))}
