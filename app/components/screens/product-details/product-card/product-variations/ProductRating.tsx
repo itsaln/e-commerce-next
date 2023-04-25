@@ -1,15 +1,15 @@
 import { FC, useState } from 'react'
 import { Rating } from 'react-simple-star-rating'
 
-import { IProductDetails } from '@/types/product.interface'
+import { IProduct } from '@/types/product.interface'
 
 import styles from '../ProductCard.module.scss'
 
-const ProductRating: FC<IProductDetails> = ({ product }) => {
+const ProductRating: FC<{ product: IProduct }> = ({ product }) => {
 	const [rating, setRating] = useState(
 		Math.round(
-			product.reviews.reduce((acc, review) => acc + review.rating, 0) /
-				product.reviews.length
+			product.reviews?.reduce((acc, review) => acc + review.rating, 0) /
+				product.reviews?.length
 		) || 0
 	)
 

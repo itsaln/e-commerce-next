@@ -5,9 +5,9 @@ import Layout from '@/layout/Layout'
 import Catalog from '@/ui/catalog/Catalog'
 import Heading from '@/ui/heading/Heading'
 
-import { products } from '@/data/product.data'
+import { IHome } from '@/screens/home/home.interface'
 
-const Home: FC = () => {
+const Home: FC<IHome> = ({ products }) => {
 	return (
 		<Layout
 			title='Home'

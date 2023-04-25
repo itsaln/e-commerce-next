@@ -2,11 +2,12 @@ import cn from 'clsx'
 import Image from 'next/image'
 import { Dispatch, FC, SetStateAction } from 'react'
 
-import { IProductDetails } from '@/types/product.interface'
+import { IProduct } from '@/types/product.interface'
 
 import styles from './ProductCard.module.scss'
 
-interface IProductInformation extends IProductDetails {
+interface IProductInformation {
+	product: IProduct
 	currentImageIndex: number
 	setCurrentImageIndex: Dispatch<SetStateAction<number>>
 }

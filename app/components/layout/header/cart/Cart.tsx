@@ -24,8 +24,6 @@ const Cart: FC = () => {
 
 	const { cart, total } = useCart()
 
-	console.log(cart)
-
 	return (
 		<div className={styles['wrapper-cart']}>
 			<button

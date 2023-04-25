@@ -1,36 +1,59 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 
-import { products } from '@/data/product.data'
-import ProductDetails from '@/screens/product-details/ProductDetails'
-import { IProduct, IProductDetails } from '@/types/product.interface'
+import { IProduct } from '@/types/product.interface'
 
-const ProductDetailsPage: NextPage<IProductDetails> = ({ product }) => {
-	return <ProductDetails product={product} />
+import ProductDetails from '@/screens/product-details/ProductDetails'
+import { IProductDetails } from '@/screens/product-details/product-details.interface'
+import { ProductService } from '@/services/product.service'
+
+const ProductDetailsPage: NextPage<IProductDetails> = ({
+	product,
+	products
+}) => {
+	return <ProductDetails product={product} products={products} />
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-	const paths = products.map((product) => {
-		return {
-			params: { slug: product.slug }
-		}
-	})
+	try {
+		const { data: products } = await ProductService.getAll()
 
-	return {
-		paths,
-		fallback: 'blocking'
+		const paths = products.map((product) => {
+			return {
+				params: { slug: product.slug }
+			}
+		})
+
+		return {
+			paths,
+			fallback: 'blocking'
+		}
+	} catch (error) {
+		return {
+			paths: [],
+			fallback: false
+		}
 	}
 }
 
 export const getStaticProps: GetStaticProps<IProductDetails> = async ({
 	params
 }) => {
-	const product =
-		(await products.find((product) => product.slug === params?.slug)) ||
-		({} as IProduct)
+	try {
+		const { data: product } =
+			(await ProductService.getBySlug(String(params?.slug))) || ({} as IProduct)
 
-	return {
-		props: {
-			product
+		const { data: products } =
+			(await ProductService.getAll()) || ([] as IProduct[])
+
+		return {
+			props: {
+				product,
+				products
+			}
+		}
+	} catch (error) {
+		return {
+			notFound: true
 		}
 	}
 }

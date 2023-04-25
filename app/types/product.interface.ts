@@ -6,11 +6,6 @@ export interface IProduct {
 	slug: string
 	description: string
 	price: number
-	// TODO: Add review interface
 	reviews: IReview[]
 	images: string[]
-}
-
-export interface IProductDetails {
-	product: IProduct
 }

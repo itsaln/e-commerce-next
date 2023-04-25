@@ -3,11 +3,12 @@ import { FC } from 'react'
 
 import { formatToCurrency } from '@/utils/format-to-currency'
 
-import { IProductDetails } from '@/types/product.interface'
+import { IProduct } from '@/types/product.interface'
 
 import styles from './ProductCard.module.scss'
 
-interface IProductImage extends IProductDetails {
+interface IProductImage {
+	product: IProduct
 	currentImageIndex: number
 }
 

@@ -15,7 +15,7 @@ import { carouselSlice } from '@/store/carousel/carousel.slice'
 import { cartSlice } from '@/store/cart/cart.slice'
 
 const persistConfig = {
-	key: 'xmax-shop',
+	key: 'e-commerce',
 	storage,
 	whitelist: ['cart']
 }
